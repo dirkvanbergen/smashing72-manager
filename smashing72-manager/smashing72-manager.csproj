@@ -57,6 +57,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -106,11 +108,78 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Content.cs" />
+    <Compile Include="Models\HtmlData.cs" />
+    <Compile Include="Models\SmashingModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="parameters.xml" />
+    <Content Include="scripts\lib\tinymce\jquery.tinymce.min.js" />
+    <Content Include="scripts\lib\tinymce\license.txt" />
+    <Content Include="scripts\lib\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\emoticons\js\emojis.js" />
+    <Content Include="scripts\lib\tinymce\plugins\emoticons\js\emojis.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\quickbars\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="scripts\lib\tinymce\skins\content\default\content.min.css" />
+    <Content Include="scripts\lib\tinymce\skins\content\document\content.min.css" />
+    <Content Include="scripts\lib\tinymce\skins\content\writer\content.min.css" />
+    <Content Include="scripts\lib\tinymce\skins\ui\oxide-dark\content.inline.min.css" />
+    <Content Include="scripts\lib\tinymce\skins\ui\oxide-dark\content.min.css" />
+    <Content Include="scripts\lib\tinymce\skins\ui\oxide-dark\skin.min.css" />
+    <Content Include="scripts\lib\tinymce\skins\ui\oxide\content.inline.min.css" />
+    <Content Include="scripts\lib\tinymce\skins\ui\oxide\content.min.css" />
+    <Content Include="scripts\lib\tinymce\skins\ui\oxide\content.mobile.min.css" />
+    <Content Include="scripts\lib\tinymce\skins\ui\oxide\skin.min.css" />
+    <Content Include="scripts\lib\tinymce\skins\ui\oxide\skin.mobile.min.css" />
+    <Content Include="scripts\lib\tinymce\themes\mobile\theme.min.js" />
+    <Content Include="scripts\lib\tinymce\themes\silver\theme.min.js" />
+    <Content Include="scripts\lib\tinymce\tinymce.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -126,12 +195,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Binders\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="scripts\lib\tinymce\langs\readme.md" />
+    <Content Include="scripts\lib\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
+    <Content Include="Views\Home\_ContentList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

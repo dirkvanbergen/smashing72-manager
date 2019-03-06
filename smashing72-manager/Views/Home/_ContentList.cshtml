@@ -1,0 +1,13 @@
+﻿@using smashing72_manager.Models
+@model List<Content>
+<div class="content-list">
+    <div class="title">Pagina's</div>
+    @foreach (var content in Model.Where(c => c.ParentContentId.HasValue == false).OrderBy(c => c.MenuOrder + (c.ShowInMenu ? 0 : 10000)))
+    {
+        <a href="/Home/Edit/?contentId=@content.Id">@content.Id - @content.MenuTitle</a>
+        foreach (var child in Model.Where(c => c.ParentContentId == content.Id).OrderBy(c => c.MenuOrder + (c.ShowInMenu ? 0 : 10000)))
+        {            <a class="sub" href="/Home/Edit/?contentId=@child.Id">@child.Id - @child.MenuTitle</a>
+        }
+    }
+    <a class="add-new" href="/Home/Edit/?contentId=0">+ Nieuwe pagina toevoegen</a>
+</div>

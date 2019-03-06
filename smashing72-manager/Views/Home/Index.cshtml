@@ -1,1 +1,6 @@
-﻿Home
+﻿@using smashing72_manager.Models
+@{
+    var contents = (List<Content>)ViewBag.Contents;
+}
+
+@Html.Partial("_ContentList", contents)
