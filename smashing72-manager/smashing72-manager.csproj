@@ -110,7 +110,9 @@
     </Compile>
     <Compile Include="Models\Content.cs" />
     <Compile Include="Models\HtmlData.cs" />
+    <Compile Include="Models\News.cs" />
     <Compile Include="Models\SmashingModel.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
