@@ -15,7 +15,7 @@ namespace smashing72_manager.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [StringLength(500)]
         public string Title { get; set; }
 
         [Required]
