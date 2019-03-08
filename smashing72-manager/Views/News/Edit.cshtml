@@ -1,0 +1,40 @@
+﻿@using smashing72_manager.Models
+@model News
+@{
+    var list = (List<News>)ViewBag.List;
+}
+
+@Html.Partial("_SectionsList")
+@Html.Partial("_NewsList", list)
+
+
+<div class="content-form">
+    <div class="title">Editor</div>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Titel</td>
+                <td><input type="text" name="Title" value="@Model.Title" /></td>
+            </tr>
+            @if (Model.Id > 0)
+            {
+                <tr>
+                    <td>Publicatiedatum</td>
+                    <td>@Model.PublishDate.ToString("yyyy-MM-dd")</td>
+                </tr>
+            }
+            <tr>
+                <td>Bericht</td>
+                <td><textarea name="Article" cols="80" rows="20">@Html.Raw(Model.Article != null ? Model.Article : "")</textarea></td>
+            </tr>
+            <tr>
+                <td>Save</td>
+                <td><input type="submit" name="submit" /></td>
+            </tr>
+        </table>
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" name="AuthorId" value="@Model.AuthorId" />
+        <input type="hidden" name="PublishDate" value="@Model.PublishDate.ToString("yyyy-MM-dd")" />
+    </form>
+</div>
+<script>tinymce.init({ selector: 'textarea' });</script>

@@ -104,7 +104,11 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\TeamController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -112,6 +116,7 @@
     <Compile Include="Models\HtmlData.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\SmashingModel.cs" />
+    <Compile Include="Models\Team.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -119,7 +124,6 @@
     <Content Include="css\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="parameters.xml" />
     <Content Include="scripts\lib\tinymce\jquery.tinymce.min.js" />
     <Content Include="scripts\lib\tinymce\license.txt" />
     <Content Include="scripts\lib\tinymce\plugins\advlist\plugin.min.js" />
@@ -203,10 +207,21 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Content\Edit.cshtml" />
     <Content Include="scripts\lib\tinymce\langs\readme.md" />
     <Content Include="scripts\lib\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
-    <Content Include="Views\Home\_ContentList.cshtml" />
+    <Content Include="Views\Content\_ContentList.cshtml" />
+    <Content Include="Views\Content\Index.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Team\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Shared\_SectionsList.cshtml" />
+    <Content Include="Views\News\_NewsList.cshtml" />
+    <Content Include="Views\Team\_TeamList.cshtml" />
+    <Content Include="Views\User\_UserList.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Team\Edit.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

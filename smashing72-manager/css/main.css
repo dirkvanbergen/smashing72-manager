@@ -11,7 +11,7 @@ body {
 
 .content-list {
     float: left;
-    width: 200px;
+    width: 250px;
     height: 100vh;
     border-right: 2px solid black;
 }
@@ -34,6 +34,19 @@ body {
 
     .content-list a:hover {
         background-color: #eee;
+    }
+
+    .content-list .year {
+        padding: 10px 20px;
+        font-weight: bold;
+    }
+
+    .content-list .month {
+        padding: 10px 30px;
+    }
+
+    .content-list .news-item {
+        padding: 10px 40px;
     }
 
 .title {

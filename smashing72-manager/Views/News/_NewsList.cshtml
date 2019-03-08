@@ -1,0 +1,23 @@
+﻿@using System.Globalization
+@using smashing72_manager.Models
+@model List<News>
+@{
+    var groupedList = Model.GroupBy(n => n.PublishDate.Year);
+}
+<div class="content-list">
+    <div class="title">Nieuwsberichten</div>
+    @foreach (var year in groupedList)
+    {
+        var monthList = year.GroupBy(n => n.PublishDate.Month);
+        <div class="year">@year.Key</div>
+        foreach (var month in monthList)
+        {
+            <div class="month">@month.First().PublishDate.ToString("MMMM", new CultureInfo("NL-nl"))</div>
+            foreach (var item in month)
+            {
+                @Html.ActionLink(item.Id + " - " + item.Title, "Edit", new {id = item.Id}, new { @class = "news-item"})
+            }
+        }
+    }
+    @Html.ActionLink("+ Nieuw bericht toevoegen", "Edit", new {id = 0}, new { @class = "add-new"})
+</div>

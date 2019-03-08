@@ -1,0 +1,7 @@
+﻿@using smashing72_manager.Models
+@{
+    var list = (List<Team>)ViewBag.List;
+}
+
+@Html.Partial("_SectionsList")
+@Html.Partial("_TeamList", list)

@@ -1,11 +1,11 @@
 ﻿@using smashing72_manager.Models
 @model Content
-@using smashing72_manager.Models
 @{
-    var contents = (List<Content>)ViewBag.Contents;
+    var list = (List<Content>)ViewBag.List;
 }
 
-@Html.Partial("_ContentList", contents)
+@Html.Partial("_SectionsList")
+@Html.Partial("_ContentList", list)
 <div class="content-form">
     <div class="title">Editor</div>
     <form method="post">

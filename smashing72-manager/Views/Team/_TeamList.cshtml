@@ -1,0 +1,10 @@
+﻿@using smashing72_manager.Models
+@model List<Team>
+<div class="content-list">
+    <div class="title">Teams</div>
+    @foreach (var item in Model)
+    {
+        @Html.ActionLink(item.Name, "Edit", new { id = item.Id })
+    }
+    @Html.ActionLink("+ Nieuw team toevoegen", "Edit", new { id = 0 }, new { @class = "add-new" })
+</div>

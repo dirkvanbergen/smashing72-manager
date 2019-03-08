@@ -14,6 +14,9 @@ namespace smashing72_manager.Models
 
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<HtmlData> HtmlDatas { get; set; }
+        public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Team> Teams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
