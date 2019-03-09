@@ -9,15 +9,18 @@
     @foreach (var year in groupedList)
     {
         var monthList = year.GroupBy(n => n.PublishDate.Month);
-        <div class="year">@year.Key</div>
-        foreach (var month in monthList)
+        <div class="year @(year.Key == DateTime.Now.Year ? "expanded" : "")"><div class="year-title">@year.Key</div>
+        @foreach (var month in monthList)
         {
-            <div class="month">@month.First().PublishDate.ToString("MMMM", new CultureInfo("NL-nl"))</div>
-            foreach (var item in month)
-            {
-                @Html.ActionLink(item.Id + " - " + item.Title, "Edit", new {id = item.Id}, new { @class = "news-item"})
-            }
+             <div class="month @(month.Key == DateTime.Now.Month ? "expanded" : "")">
+                 <div class="month-title">@month.First().PublishDate.ToString("MM MMMM", new CultureInfo("NL-nl"))</div>
+                 @foreach (var item in month)
+                 {
+                 @Html.ActionLink(item.Id + " - " + item.Title, "Edit", new { id = item.Id }, new { @class = "news-item" })
+                 }
+             </div>
         }
+        </div>
     }
     @Html.ActionLink("+ Nieuw bericht toevoegen", "Edit", new {id = 0}, new { @class = "add-new"})
 </div>

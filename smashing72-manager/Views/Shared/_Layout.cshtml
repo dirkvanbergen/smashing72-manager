@@ -8,6 +8,12 @@
     <link rel="stylesheet" type="text/css" href="~/css/main.css" />
 </head>
 <body>
+<div id="app">
     @RenderBody()
+</div>
+
+@Html.Partial("VueTemplates/_All")
+
+<script data-main="/scripts/main" src="~/scripts/require.js"></script>
 </body>
 </html>

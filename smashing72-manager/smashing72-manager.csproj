@@ -15,7 +15,7 @@
     <AssemblyName>smashing72-manager</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -123,8 +123,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\main.css" />
+    <Content Include="css\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="scripts\app\app.js" />
+    <Content Include="scripts\app\forms\news-form.js" />
+    <Content Include="scripts\app\forms\page-form.js" />
+    <Content Include="scripts\app\forms\team-form.js" />
+    <Content Include="scripts\app\forms\user-form.js" />
+    <Content Include="scripts\app\lists\section-list.js" />
+    <Content Include="scripts\app\lists\user-list.js" />
+    <Content Include="scripts\app\lists\page-list.js" />
+    <Content Include="scripts\app\lists\team-list.js" />
+    <Content Include="scripts\app\lists\news-list.js" />
     <Content Include="scripts\lib\tinymce\jquery.tinymce.min.js" />
     <Content Include="scripts\lib\tinymce\license.txt" />
     <Content Include="scripts\lib\tinymce\plugins\advlist\plugin.min.js" />
@@ -187,6 +200,9 @@
     <Content Include="scripts\lib\tinymce\themes\mobile\theme.min.js" />
     <Content Include="scripts\lib\tinymce\themes\silver\theme.min.js" />
     <Content Include="scripts\lib\tinymce\tinymce.min.js" />
+    <Content Include="scripts\lib\vue.min.js" />
+    <Content Include="scripts\main.js" />
+    <Content Include="scripts\require.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -204,6 +220,11 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\main.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -215,7 +236,6 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\Shared\_SectionsList.cshtml" />
     <Content Include="Views\News\_NewsList.cshtml" />
     <Content Include="Views\Team\_TeamList.cshtml" />
     <Content Include="Views\User\_UserList.cshtml" />
@@ -223,6 +243,16 @@
     <Content Include="Views\Team\Edit.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\Import\Index.cshtml" />
+    <Content Include="Views\Shared\VueTemplates\_All.cshtml" />
+    <Content Include="Views\Shared\VueTemplates\section-list.cshtml" />
+    <Content Include="Views\Shared\VueTemplates\page-list.cshtml" />
+    <Content Include="Views\Shared\VueTemplates\news-list.cshtml" />
+    <Content Include="Views\Shared\VueTemplates\team-list.cshtml" />
+    <Content Include="Views\Shared\VueTemplates\user-list.cshtml" />
+    <Content Include="Views\Shared\VueTemplates\news-form.cshtml" />
+    <Content Include="Views\Shared\VueTemplates\page-form.cshtml" />
+    <Content Include="Views\Shared\VueTemplates\team-form.cshtml" />
+    <Content Include="Views\Shared\VueTemplates\user-form.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -242,7 +272,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>65464</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:65464/</IISUrl>
+          <IISUrl>http://localhost:7373</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
