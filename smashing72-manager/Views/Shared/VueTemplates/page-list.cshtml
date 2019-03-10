@@ -1,1 +1,21 @@
-﻿
+﻿<template id="pagelist-template">
+    <div id="page-view">
+        <div class="content-list">
+            <div class="content-list__title">Pagina's <span class="content-form__close" @@click="closeList"></span></div>
+            <div v-for="item in topLevelItems">
+                <div class="content-list__item" :class="{'content-list__item--active': selectedItem && selectedItem.Id === item.Id}" @@click="selectedItem = item">{{item.MenuTitle}}</div>
+                <div class="content-list__item sub" :class="{'content-list__item--active': selectedItem && selectedItem.Id === sub.Id}" @@click="selectedItem = sub" v-for="sub in getChildren(item)">{{sub.MenuTitle}}</div>
+            </div>
+            <div class="content-list__item add-new" @@click="selectedItem = newItem()">+ Nieuwe pagina toevoegen</div>
+        </div>
+        <page-form
+            :item="selectedItem"
+            :parents="potentialParents"
+            v-if="selectedItem"
+            v-on:item-added="itemAdded"
+            v-on:item-updated="itemUpdated"
+            v-on:item-deleted="itemDeleted"
+            v-on:close="formClosed">
+        </page-form>
+    </div>
+</template>

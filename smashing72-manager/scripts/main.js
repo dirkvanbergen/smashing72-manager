@@ -3,7 +3,8 @@
     paths: {
         app: "/scripts/app",
         lists: "/scripts/app/lists",
-        forms: "/scripts/app/forms"
+        forms: "/scripts/app/forms",
+        tinymce: "/scripts/lib/tinymce"
     }
 });
 

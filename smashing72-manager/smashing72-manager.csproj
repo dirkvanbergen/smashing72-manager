@@ -57,6 +57,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -67,6 +70,12 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
@@ -104,17 +113,17 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\api\NewsController.cs" />
+    <Compile Include="Controllers\api\PageController.cs" />
+    <Compile Include="Controllers\api\TeamsController.cs" />
+    <Compile Include="Controllers\api\UsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImportController.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Controllers\TeamController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Content.cs" />
-    <Compile Include="Models\HtmlData.cs" />
+    <Compile Include="Models\Page.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\SmashingModel.cs" />
     <Compile Include="Models\Team.cs" />
@@ -199,6 +208,7 @@
     <Content Include="scripts\lib\tinymce\skins\ui\oxide\skin.mobile.min.css" />
     <Content Include="scripts\lib\tinymce\themes\mobile\theme.min.js" />
     <Content Include="scripts\lib\tinymce\themes\silver\theme.min.js" />
+    <Content Include="scripts\lib\tinymce\tinymce-vue.min.js" />
     <Content Include="scripts\lib\tinymce\tinymce.min.js" />
     <Content Include="scripts\lib\vue.min.js" />
     <Content Include="scripts\main.js" />
@@ -228,21 +238,8 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\Content\Edit.cshtml" />
     <Content Include="scripts\lib\tinymce\langs\readme.md" />
     <Content Include="scripts\lib\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
-    <Content Include="Views\Content\_ContentList.cshtml" />
-    <Content Include="Views\Content\Index.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\Team\Index.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\News\_NewsList.cshtml" />
-    <Content Include="Views\Team\_TeamList.cshtml" />
-    <Content Include="Views\User\_UserList.cshtml" />
-    <Content Include="Views\User\Edit.cshtml" />
-    <Content Include="Views\Team\Edit.cshtml" />
-    <Content Include="Views\News\Edit.cshtml" />
-    <Content Include="Views\Import\Index.cshtml" />
     <Content Include="Views\Shared\VueTemplates\_All.cshtml" />
     <Content Include="Views\Shared\VueTemplates\section-list.cshtml" />
     <Content Include="Views\Shared\VueTemplates\page-list.cshtml" />

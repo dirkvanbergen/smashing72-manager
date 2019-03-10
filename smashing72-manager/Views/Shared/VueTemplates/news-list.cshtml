@@ -1,1 +1,20 @@
-﻿
+﻿<template id="newslist-template">
+    <div id="news-view">
+        <div class="content-list">
+            <div class="content-list__title">Nieuws <span class="content-form__close" @@click="closeList"></span></div>
+            <div v-for="year in years">
+                <div class="content-list__item" :class="{'content-list__item--active': selectedYear && selectedYear === year}" @@click="selectYear(year)">{{year}}</div>
+                <div v-show="selectedYear === year" class="content-list__item sub" :class="{'content-list__item--active': selectedMonth && selectedMonth === month.Month}" v-for="month in getMonths(year)" @@click="selectedMonth = month.Month">{{month.Month}} - {{month.MonthName}}</div>
+            </div>
+            <div class="content-list__item add-new" @@click="selectedItem = newItem()">+ Nieuw bericht</div>
+        </div>
+        <page-form :item="selectedItem"
+                   v-if="selectedItem"
+                   v-on:item-added="itemAdded"
+                   v-on:item-updated="itemUpdated"
+                   v-on:item-deleted="itemDeleted"
+                   v-on:close="formClosed">
+        </page-form>
+    </div>
+</template>
+

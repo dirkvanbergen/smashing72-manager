@@ -25,11 +25,5 @@ namespace smashing72_manager.Models
         public DateTime PublishDate { get; set; }
 
         public int AuthorId { get; set; }
-
-        public int? IsReplacedById { get; set; }
-
-        public virtual User Author { get; set; }
-
-        public virtual News IsReplacedBy { get; set; }
     }
 }

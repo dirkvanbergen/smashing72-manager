@@ -6,15 +6,9 @@ namespace smashing72_manager.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("smashing72_admin.Content")]
-    public partial class Content
+    [Table("smashing72_admin.Page")]
+    public partial class Page
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Content()
-        {
-            Children = new HashSet<Content>();
-        }
-
         public int Id { get; set; }
 
         [Required]
@@ -36,15 +30,6 @@ namespace smashing72_manager.Models
         [StringLength(50)]
         public string DataType { get; set; }
 
-        public string JsonData { get; set; }
-
-        public int? HtmlDataId { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Content> Children { get; set; }
-
-        public virtual Content Parent { get; set; }
-
-        public virtual HtmlData HtmlData { get; set; }
+        public string Html { get; set; }
     }
 }

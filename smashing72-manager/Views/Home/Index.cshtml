@@ -1,1 +1,5 @@
-﻿<section-list></section-list>
+﻿<section-list v-on:section-changed="loadList" :section="currentSection"></section-list>
+<page-list v-show="currentSection==='page'" v-on:list-closed="currentSection = ''"></page-list>
+<news-list v-show="currentSection==='news'" v-on:list-closed="currentSection = ''"></news-list>
+<team-list v-show="currentSection==='team'" v-on:list-closed="currentSection = ''"></team-list>
+<user-list v-show="currentSection==='user'" v-on:list-closed="currentSection = ''"></user-list>

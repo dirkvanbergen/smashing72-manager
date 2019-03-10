@@ -1,4 +1,12 @@
-﻿* {
+﻿
+$font-color: #141414;
+$red: #FF1A1A;
+$light-gray: #E5E5E5;
+$medium-gray: #C4C4C4;
+$dark-gray: #898989;
+$shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+* {
     box-sizing: border-box;
 }
 
@@ -10,72 +18,184 @@ body, html, p, li, ul, form, h1, h2, h3 {
 body {
     font-family: sans-serif;
     font-size: 14px;
+    color: $font-color;
 }
 
 .content-list {
+    position: absolute;
     float: left;
-    width: 250px;
     height: 100vh;
-    border-right: 2px solid black;
+    left: 200px;
+    right: 0;
+    box-shadow: -5px 0px 20px 0px $medium-gray;
     overflow: auto;
+    background-color: white;
 
-    a {
-        color: black;
-        text-decoration: none;
-        display: block;
+    &#section-list {
+        left: 0;
+    }
+
+    &__title {
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    &__close {
+        display: inline-block;
+        float: right;
+        margin-right: 40px;
+        position: relative;
+        width: 15px;
+        height: 15px;
+
+        &:after, &:before {
+            position: absolute;
+            content: '';
+            border-radius: 2px;
+            width: 2px;
+            height: 15px;
+            transform-origin: center;
+            top: 0px;
+            left: 50%;
+            margin-left: -1px;
+            transform: rotate(45deg);
+            background-color: $font-color;
+        }
+
+        &:after {
+            transform: rotate(45deg);
+        }
+
+        &:hover {
+            &:after, &:before {
+                background-color: $red;
+            }
+        }
+    }
+
+    &__item {
         padding: 10px 20px;
+        cursor: pointer;
 
         &.sub {
             padding-left: 40px;
         }
 
         &.add-new {
-            color: red;
+            color: $red;
             font-weight: bold;
         }
 
         &:hover {
-            background-color: #eee;
+            color: $font-color;
+            background-color: $light-gray;
+        }
+
+        &--active {
+            background-color: $red;
+            font-weight: bold;
+            color: white;
         }
     }
-
-    .year {
-        padding: 10px 20px;
-        font-weight: bold;
-
-        .month {
-            padding: 10px 10px;
-            display: none;
-            font-weight: normal;
-
-            a {
-                padding: 10px 10px;
-                display: none;
-            }
-
-            &.expanded a {
-                display: block;
-            }
-        }
-
-        &.expanded .month {
-            display: block;
-        }
-    }
-}
-
-.title {
-    padding: 20px;
-    font-size: 24px;
-    font-weight: bold;
 }
 
 .content-form {
+    position: absolute;
     float: left;
-}
+    height: 100vh;
+    overflow: auto;
+    padding: 20px;
+    left: 400px;
+    right: 0;
+    background-color: white;
+    box-shadow: -5px 0px 20px 0px $medium-gray;
 
-form {
-    padding-left: 20px;
+    &__title {
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    &__close {
+        display: inline-block;
+        float: right;
+        margin-right: 40px;
+        position: relative;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+
+        &:after, &:before {
+            position: absolute;
+            content: '';
+            border-radius: 2px;
+            width: 2px;
+            height: 15px;
+            transform-origin: center;
+            top: 0px;
+            left: 50%;
+            margin-left: -1px;
+            transform: rotate(45deg);
+            background-color: $font-color;
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+        }
+
+        &:hover {
+            &:after, &:before {
+                background-color: $red;
+            }
+        }
+    }
+
+    &__property {
+        margin-bottom: 15px;
+
+        &-name {
+            margin-bottom: 5px;
+        }
+
+        [role="application"] {
+            width: 800px;
+            height: 500px;
+        }
+    }
+
+    &__button {
+        font-weight: bold;
+        border-radius: 3px;
+        display: inline-block;
+        padding: 20px;
+        cursor: pointer;
+        box-shadow: 0px 5px 0px 0px #9EF7E8;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &--submit {
+            background-color: $red;
+            color: white;
+            box-shadow: 0px 5px 0px 0px darken($red, 15%);
+        }
+
+        &--cancel {
+            box-shadow: 0px 5px 0px 0px darken($medium-gray, 15%);
+            background-color: $medium-gray;
+            color: $font-color;
+            margin-left: 20px;
+        }
+
+        &--delete {
+            background-color: $font-color;
+            box-shadow: 0px 5px 0px 0px darken($font-color, 15%);
+            color: white;
+            margin-left: 20px;
+        }
+    }
 }
 
 input, select {

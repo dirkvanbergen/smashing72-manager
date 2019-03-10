@@ -1,1 +1,52 @@
-﻿
+﻿<template id="pageform-template">
+    <div class="content-form" id="page-form">
+        <div class="content-form__title">Editor <span class="content-form__close" @@click="closeForm"></span></div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">Menu titel</div>
+            <div class="content-form__property-value"><input v-model="item.MenuTitle" type="text" maxlength="100" /></div>
+        </div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">Pagina titel</div>
+            <div class="content-form__property-value"><input v-model="item.Title" type="text" maxlength="500" /></div>
+        </div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">Valt onder</div>
+            <div class="content-form__property-value">
+                <select v-model="item.ParentContentId">
+                    <option value="">- nergens - </option>
+                    <option v-for="parent in parents" :value="parent.Id">{{ parent.Name }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">Url (wordt: {{ finalUrl }})</div>
+            <div class="content-form__property-value"><input v-model="item.UrlSegment" type="text" maxlength="500" /></div>
+        </div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">Menuvolgorde</div>
+            <div class="content-form__property-value"><input v-model="item.MenuOrder" type="number" /></div>
+        </div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">Toon in menu</div>
+            <div class="content-form__property-value"><select v-model="item.ShowInMenu"><option value="true">Ja</option><option value="false">Nee</option></select></div>
+        </div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">Pagina type</div>
+            <div class="content-form__property-value">
+                <select v-model="item.DataType">
+                    <option value="MenuItem">Menuitem (zonder link)</option>
+                    <option value="ContentPage">Contentpagina</option>
+                    <option value="TeamPage">Teampagina</option>
+                    <option value="HomePage">Homepagina</option>
+                </select>
+            </div>
+        </div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">Content</div>
+            <div class="content-form__property-value"><editor v-model="item.Html" :init="tinyInit"></editor></div>
+        </div>
+        <div class="content-form__button content-form__button--submit" @@click="savePage">Opslaan</div>
+        <div class="content-form__button content-form__button--cancel" @@click="closeForm">Annuleren</div>
+        <div class="content-form__button content-form__button--delete" @@click="deletePage" v-if="item.Id">Verwijderen</div>
+    </div>
+</template>

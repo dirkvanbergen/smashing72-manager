@@ -11,11 +11,17 @@
     var app = new Vue({
         el: "#app",
         data: {
-            listType: ""
+            currentSection: ""
         },
         methods: {
+            getList: function(listType) {
+                return this.$children.filter(function(c) {
+                    return c.$el.id === listType + "-view";
+                })[0];
+            },
             loadList: function(listType) {
-                this.listType = listType;
+                this.currentSection = listType;
+                this.getList(listType).loadList();
             }
         }
     });
