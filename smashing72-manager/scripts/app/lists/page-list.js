@@ -88,6 +88,7 @@
                     this.selectedItem = null;
                 },
                 formClosed: function () {
+                    if (this.selectedItem.Id === 0) return;
                     var self = this;
                     var http = new XMLHttpRequest();
                     var url = "/api/Page/" + this.selectedItem.Id;

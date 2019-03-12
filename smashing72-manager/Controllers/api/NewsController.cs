@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -9,6 +10,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Mvc;
 using smashing72_manager.Models;
 
 namespace smashing72_manager.Controllers.api
@@ -20,7 +22,7 @@ namespace smashing72_manager.Controllers.api
         // GET: api/News
         public IEnumerable<NewsVm> GetNews()
         {
-            var news = db.News.ToList().Select(NewsVm.FromNews);
+            var news = db.News.ToList().Select(NewsVm.FromNews).ToList();
             return news;
         }
 
@@ -39,12 +41,14 @@ namespace smashing72_manager.Controllers.api
 
         // PUT: api/News/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutNews(int id, News news)
+        public IHttpActionResult PutNews(int id, NewsVm newsVm)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            var news = newsVm.ToNews();
 
             if (id != news.Id)
             {
@@ -74,12 +78,14 @@ namespace smashing72_manager.Controllers.api
 
         // POST: api/News
         [ResponseType(typeof(NewsVm))]
-        public IHttpActionResult PostNews(News news)
+        public IHttpActionResult PostNews(NewsVm newsVm)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            var news = newsVm.ToNews();
 
             db.News.Add(news);
             db.SaveChanges();
@@ -125,6 +131,7 @@ namespace smashing72_manager.Controllers.api
             return new NewsVm
             {
                 Id = n.Id,
+                Title = n.Title,
                 Article = n.Article,
                 AuthorId = n.AuthorId,
                 Year = n.PublishDate.Year,
@@ -133,7 +140,24 @@ namespace smashing72_manager.Controllers.api
                 MonthName = n.PublishDate.ToString("MMMM", new CultureInfo("NL-nl")),
             };
         }
+
+        public News ToNews()
+        {
+            return new News
+            {
+                Id = Id,
+                Title = Title,
+                Article = Article,
+                AuthorId = AuthorId,
+                PublishDate = new DateTime(Year, Month, Day)
+            };
+        }
         public int Id { get; set; }
+        [Required]
+        [StringLength(500)]
+        public string Title { get; set; }
+        [Required]
+        [AllowHtml]
         public string Article { get; set; }
 
         public int AuthorId { get; set; }

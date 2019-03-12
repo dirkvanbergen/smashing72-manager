@@ -11,7 +11,14 @@
             data: function() {
                 return {
                     tinyInit: {
-                        height: "500px"
+                        height: "500px",
+                        width: "100%",
+                        contextmenu: "link image imagetools table",
+                        plugins: "searchreplace autolink code visualblocks visualchars image link media table advlist lists wordcount imagetools textpattern",
+                        toolbar: "formatselect | bold italic strikethrough forecolor backcolor | link image media | alignleft aligncenter alignright alignjustify  | numlist bullist | removeformat",
+                        images_upload_url: "/api/image",
+                        automatic_uploads: true,
+                        images_reuse_filename: true
                     }
                 };
             },

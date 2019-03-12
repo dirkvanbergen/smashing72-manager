@@ -1,11 +1,8 @@
 ﻿<template id="sectionlist-template">
     <div class="content-list" id="section-list">
-        <div class="content-list__title">Dingen</div>
-        <div @@click="changeSection('page')" class="content-list__item" :class="{'content-list__item--active': section === 'page'}">Pagina's</div>
-        <div @@click="changeSection('news')" class="content-list__item" :class="{'content-list__item--active': section === 'news'}">Nieuws</div>
-        <div @@click="changeSection('team')" class="content-list__item" :class="{'content-list__item--active': section === 'team'}">Teams</div>
-        <div @@click="changeSection('user')" class="content-list__item" :class="{'content-list__item--active': section === 'user'}">Gebruikers</div>
-
-        @Html.ActionLink("Import", "Index", "Import")
+        <div @@click="changeSection('page')" class="content-list__item content-list__item--section" :class="{'content-list__item--active': section === 'page'}">Pagina's</div>
+        <div @@click="changeSection('news')" class="content-list__item content-list__item--section" :class="{'content-list__item--active': section === 'news'}">Nieuws</div>
+        <div @@click="changeSection('team')" class="content-list__item content-list__item--section" :class="{'content-list__item--active': section === 'team'}">Teams</div>
+        <div @@click="changeSection('user')" class="content-list__item content-list__item--section" :class="{'content-list__item--active': section === 'user'}">Gebruikers</div>
     </div>
 </template>

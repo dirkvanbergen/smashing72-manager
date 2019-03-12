@@ -8,7 +8,7 @@ using System.Web;
 namespace smashing72_manager.Models
 {
 
-    [Table("smashing72_admin.User")]
+    [Table("dbo.User")]
     public class User
     {
         public int Id { get; set; }

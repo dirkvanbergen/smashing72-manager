@@ -8,8 +8,7 @@ using System.Web.Mvc;
 
 namespace smashing72_manager.Models
 {
-
-    [Table("smashing72_admin.News")]
+    [Table("dbo.News")]
     public class News
     {
         public int Id { get; set; }

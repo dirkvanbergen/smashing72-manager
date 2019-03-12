@@ -33,10 +33,21 @@ body {
 
     &#section-list {
         left: 0;
+        padding-top: 60px;
+
+        &:before {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            content: 'Smashing \'72';
+            font-size: 24px;
+            font-weight: bold;
+            color: $red;
+        }
     }
 
     &__title {
-        padding: 20px;
+        margin: 20px 0 10px 20px;
         font-size: 24px;
         font-weight: bold;
     }
@@ -74,15 +85,69 @@ body {
         }
     }
 
+    &__button {
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+
     &__item {
         padding: 10px 20px;
         cursor: pointer;
 
-        &.sub {
+        &--section {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        &--root-page {
+            padding-left: 20px;
+        }
+
+        &--leaf-page {
             padding-left: 40px;
         }
 
-        &.add-new {
+        &--year, &--month {
+            padding-left: 35px;
+            position: relative;
+            font-weight: bold;
+
+            &:before, &:after {
+                position: absolute;
+                content: '';
+                height: 8px;
+                top: 13px;
+                left: 25px;
+                width: 2px;
+                border-radius: 3px;
+                transform-origin: center;
+                background-color: $font-color;
+                overflow: hidden;
+            }
+
+            &:before {
+                transform: rotate(90deg);
+            }
+        }
+
+        &--selected-year, &--selected-month {
+            &:after {
+                display: none;
+            }
+        }
+
+        &--month {
+            padding-left: 55px;
+            &:before, &:after {
+                left: 45px;
+            }
+        }
+
+        &--news {
+            padding-left: 60px;
+        }
+
+        &--new {
             color: $red;
             font-weight: bold;
         }
@@ -163,38 +228,42 @@ body {
             height: 500px;
         }
     }
+}
+.button {
+    font-weight: bold;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 20px;
+    cursor: pointer;
+    box-shadow: 0px 5px 0px 0px #9EF7E8;
 
-    &__button {
-        font-weight: bold;
-        border-radius: 3px;
-        display: inline-block;
-        padding: 20px;
-        cursor: pointer;
-        box-shadow: 0px 5px 0px 0px #9EF7E8;
+    &:hover {
+        opacity: 0.8;
+    }
 
-        &:hover {
-            opacity: 0.8;
-        }
+    &--submit {
+        background-color: $red;
+        color: white;
+        box-shadow: 0px 5px 0px 0px darken($red, 15%);
+    }
 
-        &--submit {
-            background-color: $red;
-            color: white;
-            box-shadow: 0px 5px 0px 0px darken($red, 15%);
-        }
+    &--cancel {
+        box-shadow: 0px 5px 0px 0px darken($medium-gray, 15%);
+        background-color: $medium-gray;
+        color: $font-color;
+        margin-left: 20px;
+    }
 
-        &--cancel {
-            box-shadow: 0px 5px 0px 0px darken($medium-gray, 15%);
-            background-color: $medium-gray;
-            color: $font-color;
-            margin-left: 20px;
-        }
+    &--delete {
+        background-color: $font-color;
+        box-shadow: 0px 5px 0px 0px darken($font-color, 15%);
+        color: white;
+        margin-left: 40px;
+    }
 
-        &--delete {
-            background-color: $font-color;
-            box-shadow: 0px 5px 0px 0px darken($font-color, 15%);
-            color: white;
-            margin-left: 20px;
-        }
+    &--small {
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 }
 

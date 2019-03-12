@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using smashing72_manager.Models;
@@ -25,7 +26,7 @@ namespace smashing72_manager.Controllers
                 var currentTitle = "";
                 var currentDate = DateTime.MinValue;
 
-                using (var reader = new StreamReader(stream))
+                using (var reader = new StreamReader(stream, Encoding.Default))
                 {
                     var linenum = 0;
                     while (!reader.EndOfStream)
@@ -82,13 +83,14 @@ namespace smashing72_manager.Controllers
                 }
             }
 
+            list.Reverse();
             using (var db = new SmashingModel())
             {
                 db.News.AddRange(list);
                 db.SaveChanges();
             }
 
-            return View();
+            return null;
         }
     }
 }

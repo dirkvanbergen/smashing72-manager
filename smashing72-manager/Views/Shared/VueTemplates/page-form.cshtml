@@ -45,8 +45,8 @@
             <div class="content-form__property-name">Content</div>
             <div class="content-form__property-value"><editor v-model="item.Html" :init="tinyInit"></editor></div>
         </div>
-        <div class="content-form__button content-form__button--submit" @@click="savePage">Opslaan</div>
-        <div class="content-form__button content-form__button--cancel" @@click="closeForm">Annuleren</div>
-        <div class="content-form__button content-form__button--delete" @@click="deletePage" v-if="item.Id">Verwijderen</div>
+        <div class="button button--submit button--small" @@click="savePage">Opslaan</div>
+        <div class="button button--cancel button--small" @@click="closeForm">Annuleren</div>
+        <div class="button button--delete button--small" @@click="deletePage" v-if="item.Id">Verwijderen</div>
     </div>
 </template>

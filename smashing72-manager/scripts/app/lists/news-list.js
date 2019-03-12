@@ -26,11 +26,13 @@
             },
             methods: {
                 selectYear: function(year) {
-                    this.selectedYear = year;
+                    this.selectedYear = (this.selectedYear === year ? 0 : year);
                     this.selectedMonth = 0;
+                    this.selectedItem = null;
                 },
-                selectMonth: function(month) {
-                    this.selectedMonth = parseInt(month.substring(0, 2));
+                selectMonth: function (month) {
+                    this.selectedMonth = (this.selectedMonth === month.Month ? 0 : month.Month);
+                    this.selectedItem = null;
                 },
                 getMonths: function (year) {
                     return this.list.reduce(function (acc, item) {
@@ -39,18 +41,23 @@
                         }
                         return acc;
                     },
-                    []).sort();
+                        []).sort(function (a, b) { return b.Month - a.Month; });
+                },
+                getItems: function(year, month) {
+                    return this.list.filter(function(item) {
+                        return item.Year === year && item.Month === month.Month;
+                    }).sort(function (a, b) { return b.Id - a.Id; });
                 },
                 newItem: function () {
+                    var today = new Date();
                     return {
                         Id: 0,
                         Title: '',
                         Article: '',
                         AuthorId: 1,
-                        PublishDate: getDate(),
-                        Day: getDate().getDate(),
-                        Month: getDate().getMonth() + 1,
-                        Year: getDate().getFullYear()
+                        Day: today.getDate(),
+                        Month: today.getMonth() + 1,
+                        Year: today.getFullYear()
                     };
                 },
                 selectItem: function (item) {
@@ -94,6 +101,7 @@
                     this.selectedItem = null;
                 },
                 formClosed: function () {
+                    if (this.selectedItem.Id === 0) return;
                     var self = this;
                     var http = new XMLHttpRequest();
                     var url = "/api/news/" + this.selectedItem.Id;

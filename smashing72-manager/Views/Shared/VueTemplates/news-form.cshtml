@@ -1,1 +1,20 @@
-﻿
+﻿<template id="newsform-template">
+    <div class="content-form" id="news-form">
+        <div class="content-form__title">Editor <span class="content-form__close" @@click="closeForm"></span></div>
+        <div class="content-form__property" v-if="item.Id > 0">
+            <div class="content-form__property-name">Geplaatst op {{item.Day}} {{item.MonthName}} {{item.Year}}</div>
+        </div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">Titel</div>
+            <div class="content-form__property-value"><input v-model="item.Title" type="text" maxlength="500" /></div>
+        </div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">Content</div>
+            <div class="content-form__property-value"><editor v-model="item.Article" :init="tinyInit"></editor></div>
+        </div>
+        <div class="button button--submit button--small" @@click="savePage">Opslaan</div>
+        <div class="button button--cancel button--small" @@click="closeForm">Annuleren</div>
+        <div class="button button--delete button--small" @@click="deletePage" v-if="item.Id">Verwijderen</div>
+    </div>
+</template>
+

@@ -8,7 +8,7 @@ using System.Web;
 namespace smashing72_manager.Models
 {
 
-    [Table("smashing72_admin.Team")]
+    [Table("dbo.Team")]
     public class Team
     {
         public int Id { get; set; }

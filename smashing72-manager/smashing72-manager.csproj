@@ -114,6 +114,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\api\ImageController.cs" />
     <Compile Include="Controllers\api\NewsController.cs" />
     <Compile Include="Controllers\api\PageController.cs" />
     <Compile Include="Controllers\api\TeamsController.cs" />
@@ -131,6 +132,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\SamshingDB.mdf" />
+    <Content Include="App_Data\SamshingDB_log.ldf">
+      <DependentUpon>SamshingDB.mdf</DependentUpon>
+    </Content>
     <Content Include="css\main.css" />
     <Content Include="css\main.min.css">
       <DependentUpon>main.css</DependentUpon>
@@ -227,7 +232,7 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\main.scss" />

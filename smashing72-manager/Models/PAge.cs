@@ -6,7 +6,7 @@ namespace smashing72_manager.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("smashing72_admin.Page")]
+    [Table("dbo.Page")]
     public partial class Page
     {
         public int Id { get; set; }
