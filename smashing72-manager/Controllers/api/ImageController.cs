@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -15,9 +17,11 @@ namespace smashing72_manager.Controllers.api
         {
             var httpRequest = HttpContext.Current.Request;
             var postedFile = httpRequest.Files.Get(0);
-            var savePath = HttpContext.Current.Server.MapPath("~/img/" + postedFile.FileName);
+            var destinationFolder = ConfigurationManager.AppSettings["TinyMceFileUploadPath"];
+            var destinationUrl = ConfigurationManager.AppSettings["TinyMceFileUploadUrl"];
+            var savePath = Path.Combine(destinationFolder, postedFile.FileName);
             postedFile.SaveAs(savePath);
-            var location = "/img/" + postedFile.FileName;
+            var location = $"{destinationUrl}" + postedFile.FileName;
             return Json(new { location });
         }
     }
