@@ -1,0 +1,149 @@
+﻿
+.content-list {
+    position: absolute;
+    float: left;
+    height: 100vh;
+    left: 200px;
+    right: 0;
+    box-shadow: -5px 0px 20px 0px $medium-gray;
+    overflow: auto;
+    background-color: white;
+
+    &#section-list {
+        left: 0;
+        padding-top: 60px;
+
+        &:before {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            content: 'Smashing \'72';
+            font-size: 24px;
+            font-weight: bold;
+            color: $red;
+        }
+    }
+
+    &__title {
+        margin: 20px 0 10px 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    &__close {
+        display: inline-block;
+        float: right;
+        margin-right: 40px;
+        position: relative;
+        width: 15px;
+        height: 15px;
+
+        &:after, &:before {
+            position: absolute;
+            content: '';
+            border-radius: 2px;
+            width: 2px;
+            height: 15px;
+            transform-origin: center;
+            top: 0px;
+            left: 50%;
+            margin-left: -1px;
+            transform: rotate(45deg);
+            background-color: $font-color;
+        }
+
+        &:after {
+            transform: rotate(45deg);
+        }
+
+        &:hover {
+            &:after, &:before {
+                background-color: $red;
+            }
+        }
+    }
+
+    &__button {
+        margin-left: 20px;
+        margin-bottom: 10px;
+
+        &--logout {
+            margin-top: 40px;
+        }
+    }
+
+    &__item {
+        padding: 10px 20px;
+        cursor: pointer;
+
+        &--section {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        &--root-page {
+            padding-left: 20px;
+        }
+
+        &--leaf-page {
+            padding-left: 40px;
+        }
+
+        &--year, &--month {
+            padding-left: 35px;
+            position: relative;
+            font-weight: bold;
+
+            &:before, &:after {
+                position: absolute;
+                content: '';
+                height: 8px;
+                top: 13px;
+                left: 25px;
+                width: 2px;
+                border-radius: 3px;
+                transform-origin: center;
+                background-color: $font-color;
+                overflow: hidden;
+            }
+
+            &:before {
+                transform: rotate(90deg);
+            }
+        }
+
+        &--selected-year, &--selected-month {
+            &:after {
+                display: none;
+            }
+        }
+
+        &--month {
+            padding-left: 55px;
+
+            &:before, &:after {
+                left: 45px;
+            }
+        }
+
+        &--news {
+            padding-left: 60px;
+        }
+
+        &--new {
+            color: $red;
+            font-weight: bold;
+        }
+
+        &:hover {
+            color: $font-color;
+            background-color: $light-gray;
+        }
+
+        &--active {
+            background-color: $red;
+            font-weight: bold;
+            color: white;
+        }
+    }
+}

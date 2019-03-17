@@ -1,0 +1,38 @@
+﻿/// reference
+.button {
+    font-weight: bold;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 20px;
+    cursor: pointer;
+    box-shadow: 0px 5px 0px 0px #9EF7E8;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &--submit {
+        background-color: $red;
+        color: white;
+        box-shadow: 0px 5px 0px 0px darken($red, 15%);
+    }
+
+    &--cancel {
+        box-shadow: 0px 5px 0px 0px darken($medium-gray, 15%);
+        background-color: $medium-gray;
+        color: $font-color;
+        margin-left: 20px;
+    }
+
+    &--delete {
+        background-color: $font-color;
+        box-shadow: 0px 5px 0px 0px darken($font-color, 15%);
+        color: white;
+        margin-left: 40px;
+    }
+
+    &--small {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}

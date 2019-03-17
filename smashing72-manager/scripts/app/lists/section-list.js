@@ -8,6 +8,17 @@
             methods: {
                 changeSection: function (section) {
                     this.$emit("section-changed", section);
+                },
+                logOut: function() {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "/Account/LogOut");
+
+
+                    xhr.addEventListener("load", function (event) {
+                        location.reload();
+                    });
+
+                    xhr.send();
                 }
             }
         });

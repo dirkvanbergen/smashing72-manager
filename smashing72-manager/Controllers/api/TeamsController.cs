@@ -12,6 +12,7 @@ using smashing72_manager.Models;
 
 namespace smashing72_manager.Controllers.api
 {
+    [Authorize]
     public class TeamsController : ApiController
     {
         private SmashingModel db = new SmashingModel();

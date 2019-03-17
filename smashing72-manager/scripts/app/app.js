@@ -7,6 +7,7 @@
     var newsList = require("lists/news-list");
     var teamList = require("lists/team-list");
     var userList = require("lists/user-list");
+    var login = require("forms/login");
 
     var app = new Vue({
         el: "#app",

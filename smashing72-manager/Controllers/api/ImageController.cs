@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace smashing72_manager.Controllers.api
 {
+    [Authorize]
     public class ImageController : ApiController
     {
         [HttpPost, Route("api/image")]

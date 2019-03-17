@@ -1,8 +1,24 @@
 ﻿<template id="sectionlist-template">
     <div class="content-list" id="section-list">
-        <div @@click="changeSection('page')" class="content-list__item content-list__item--section" :class="{'content-list__item--active': section === 'page'}">Pagina's</div>
-        <div @@click="changeSection('news')" class="content-list__item content-list__item--section" :class="{'content-list__item--active': section === 'news'}">Nieuws</div>
-        <div @@click="changeSection('team')" class="content-list__item content-list__item--section" :class="{'content-list__item--active': section === 'team'}">Teams</div>
-        <div @@click="changeSection('user')" class="content-list__item content-list__item--section" :class="{'content-list__item--active': section === 'user'}">Gebruikers</div>
+        @if (User.IsInRole("PageEdit_All") || User.IsInRole("PageEdit_Self") || User.IsInRole("Admin"))
+        {
+            <div @@click="changeSection('page')" class="content-list__item content-list__item--section" :class="{'content-list__item--active': section === 'page'}">Pagina's</div>
+        }
+        @if (User.IsInRole("NewsEdit_All") || User.IsInRole("NewsEdit_Self") || User.IsInRole("Admin"))
+        {
+            <div @@click="changeSection('news')" class="content-list__item content-list__item--section" :class="{'content-list__item--active': section === 'news'}">Nieuws</div>
+        }
+            
+        @if (User.IsInRole("TeamEdit_All") || User.IsInRole("TeamEdit_Self") || User.IsInRole("Admin"))
+        {
+            <div @@click="changeSection('team')" class="content-list__item content-list__item--section" :class="{'content-list__item--active': section === 'team'}">Teams</div>
+        }
+            
+        @if (User.IsInRole("Admin"))
+        {
+            <div @@click="changeSection('user')" class="content-list__item content-list__item--section" :class="{'content-list__item--active': section === 'user'}">Gebruikers</div>
+        }
+        <div class="content-list__button content-list__button--logout"><div class="button button--submit button--small" @@click="logOut()">Uitloggen</div></div>
+        
     </div>
 </template>

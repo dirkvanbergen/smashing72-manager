@@ -1,5 +1,24 @@
-﻿<section-list v-on:section-changed="loadList" :section="currentSection"></section-list>
-<page-list v-show="currentSection==='page'" v-on:list-closed="currentSection = ''"></page-list>
-<news-list v-show="currentSection==='news'" v-on:list-closed="currentSection = ''"></news-list>
-<team-list v-show="currentSection==='team'" v-on:list-closed="currentSection = ''"></team-list>
-<user-list v-show="currentSection==='user'" v-on:list-closed="currentSection = ''"></user-list>
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <section-list v-on:section-changed="loadList" :section="currentSection"></section-list>
+    if (User.IsInRole("PageEdit_All") || User.IsInRole("PageEdit_Self") || User.IsInRole("Admin"))
+    {
+        <page-list v-show="currentSection==='page'" v-on:list-closed="currentSection = ''"></page-list>
+    }
+    if (User.IsInRole("NewsEdit_All") || User.IsInRole("NewsEdit_Self") || User.IsInRole("Admin"))
+    {
+        <news-list v-show="currentSection==='news'" v-on:list-closed="currentSection = ''"></news-list>
+    }
+    if (User.IsInRole("TeamEdit_All") || User.IsInRole("TeamEdit_Self") || User.IsInRole("Admin"))
+    {
+        <team-list v-show="currentSection==='team'" v-on:list-closed="currentSection = ''"></team-list>
+    }
+    if (User.IsInRole("Admin"))
+    {
+        <user-list v-show="currentSection==='user'" v-on:list-closed="currentSection = ''"></user-list>
+    }
+}
+else
+{
+    <login></login>
+}

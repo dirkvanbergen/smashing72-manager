@@ -1,0 +1,65 @@
+﻿
+.content-form {
+    position: absolute;
+    float: left;
+    height: 100vh;
+    overflow: auto;
+    padding: 20px;
+    left: 400px;
+    right: 0;
+    background-color: white;
+    box-shadow: -5px 0px 20px 0px $medium-gray;
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    &__close {
+        display: inline-block;
+        float: right;
+        margin-right: 40px;
+        position: relative;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+
+        &:after, &:before {
+            position: absolute;
+            content: '';
+            border-radius: 2px;
+            width: 2px;
+            height: 15px;
+            transform-origin: center;
+            top: 0px;
+            left: 50%;
+            margin-left: -1px;
+            transform: rotate(45deg);
+            background-color: $font-color;
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+        }
+
+        &:hover {
+            &:after, &:before {
+                background-color: $red;
+            }
+        }
+    }
+
+    &__property {
+        margin-bottom: 15px;
+
+        &-name {
+            margin-bottom: 5px;
+        }
+
+        [role="application"] {
+            width: 800px;
+            height: 500px;
+        }
+    }
+}

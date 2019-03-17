@@ -15,6 +15,7 @@ using smashing72_manager.Models;
 
 namespace smashing72_manager.Controllers.api
 {
+    [System.Web.Mvc.Authorize]
     public class NewsController : ApiController
     {
         private SmashingModel db = new SmashingModel();

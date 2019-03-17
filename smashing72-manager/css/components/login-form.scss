@@ -1,0 +1,125 @@
+﻿/// <reference path="../main.scss" />
+.login-form {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    form {
+        color: $font-color;
+        display: block;
+        padding: 20px;
+        border: 1px solid $medium-gray;
+        border-radius: 3px;
+        box-shadow: $shadow;
+        overflow: hidden;
+        width: 100%;
+        max-width: 550px;
+
+        @media (max-width: 550px) {
+            border: 0px;
+            box-shadow: none;
+        }
+
+        input {
+            display: block;
+            font-size: 24px;
+            line-height: 36px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__title {
+        color: $red;
+        margin-bottom: 20px;
+
+        &--login {
+            &.fade-leave,
+            &.fade-leave-to,
+            &.fade-leave-active {
+                position: absolute;
+            }
+
+            &.fade-enter,
+            &.fade-enter-to,
+            &.fade-enter-active {
+                position: absolute;
+            }
+        }
+    }
+
+    &__text {
+        color: $dark-gray;
+        transition: margin-top 0.2s ease-in-out;
+
+        &--login {
+        }
+
+        &--register {
+            &.fade-leave,
+            &.fade-leave-active {
+                position: absolute;
+            }
+
+            &.fade-enter,
+            &.fade-enter-active {
+                position: absolute;
+            }
+        }
+    }
+
+    &__link {
+        color: $red;
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &__input {
+        &--submit {
+            text-align: center;
+            margin-top: 20px;
+
+            .button {
+                padding-left: 40px;
+                padding-right: 40px;
+                border: 0;
+            }
+        }
+
+        &--confirm {
+            transform: translateX(0);
+        }
+    }
+}
+
+.slide-in-leave-to,
+.slide-in-enter {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.slide-in-leave-active,
+.slide-in-enter-active {
+    transition: transform 0.5s ease-in-out,opacity 0.5s ease-in-out;
+}
+
+.fade-leave-to,
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-leave-active,
+.fade-enter-active {
+    transition: opacity 0.5s ease-in-out;
+}

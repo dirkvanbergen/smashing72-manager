@@ -1,0 +1,27 @@
+﻿<template id="login-template">
+    <div class="login-form" id="login-form">
+        <form method="post" :action="formAction" ref="form">
+            <transition name="fade">
+                <h1 class="login-form__title login-form__title--login" v-if="currentAction==='login'">Log in</h1>
+            </transition>
+            <transition name="fade">
+                <h1 class="login-form__title login-form__title--register" v-if="currentAction==='register'">Registreer</h1>
+            </transition>
+            @Html.AntiForgeryToken()
+            <div class="login-form__input login-form__input--email"><label>Email<input type="text" name="Email" /></label></div>
+            <div class="login-form__input login-form__input--password"><label>Wachtwoord<input type="text" name="Password" /></label></div>
+            <transition name="slide-in">
+                <div class="login-form__input login-form__input--confirm" v-if="currentAction==='register'"><label>Bevestig wachtwoord <input type="text" name="ConfirmPassword" /></label></div>
+            </transition>
+            <transition name="fade">
+                <div class="login-form__text login-form__text--register" v-if="currentAction==='login'">Nog geen account? <span class="login-form__link" @@click="currentAction='register'">Registreren</span></div>
+            </transition>
+            <transition name="fade">
+                <div class="login-form__text login-form__text--login" v-if="currentAction==='register'">Al geregistreerd? <span class="login-form__link" @@click="currentAction='login'">Inloggen</span></div>
+            </transition>
+            <div class="login-form__input login-form__input--submit">
+                <button type="submit" class="button button--submit" @@click.prevent.stop="sendForm()">{{buttonText}}</button>
+            </div>
+        </form>
+    </div>
+</template>
