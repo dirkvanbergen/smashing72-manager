@@ -25,5 +25,11 @@ namespace smashing72_manager.Controllers.api
             var location = $"{destinationUrl}" + postedFile.FileName;
             return Json(new { location });
         }
+
+        public IHttpActionResult GetImage(int id)
+        {
+            var address = HttpContext.Current.Server.MapPath("/");
+            return Json(new {address});
+        }
     }
 }

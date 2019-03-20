@@ -18,14 +18,14 @@ namespace smashing72_manager.Controllers.api
         private SmashingModel db = new SmashingModel();
         
         // GET: api/Page
-        public IQueryable<Page> GetContents()
+        public IQueryable<Page> GetPages()
         {
             return db.Pages;
         }
 
         // GET: api/Page/5
         [ResponseType(typeof(Page))]
-        public IHttpActionResult GetContent(int id)
+        public IHttpActionResult GetPage(int id)
         {
             Page content = db.Pages.Find(id);
             if (content == null)
@@ -38,7 +38,7 @@ namespace smashing72_manager.Controllers.api
 
         // PUT: api/Page/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutContent(int id, Page content)
+        public IHttpActionResult PutPage(int id, Page content)
         {
             if (!ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace smashing72_manager.Controllers.api
 
         // POST: api/Page
         [ResponseType(typeof(Page))]
-        public IHttpActionResult PostContent(Page content)
+        public IHttpActionResult PostPage(Page content)
         {
             if (!ModelState.IsValid)
             {
