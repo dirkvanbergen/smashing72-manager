@@ -53,7 +53,7 @@
                 loadList: function () {
                     var self = this;
                     var http = new XMLHttpRequest();
-                    var url = "/api/Page/";
+                    var url = "/api/page/";
 
                     http.addEventListener("load", function (data) {
                         var pages = data.currentTarget.response;
@@ -91,7 +91,7 @@
                     if (this.selectedItem.Id === 0) return;
                     var self = this;
                     var http = new XMLHttpRequest();
-                    var url = "/api/Page/" + this.selectedItem.Id;
+                    var url = "/api/page/" + this.selectedItem.Id;
 
                     http.addEventListener("load", function (data) {
                         var item = data.currentTarget.response;

@@ -13,18 +13,20 @@ using smashing72_manager.Models;
 namespace smashing72_manager.Controllers.api
 {
     [Authorize]
+    [RoutePrefix("api/page")]
     public class PageController : ApiController
     {
         private SmashingModel db = new SmashingModel();
-        
-        // GET: api/Page
+
+        [HttpGet, Route("")]
         public IQueryable<Page> GetPages()
         {
             return db.Pages;
         }
 
-        // GET: api/Page/5
+        // GET: api/page/5
         [ResponseType(typeof(Page))]
+        [HttpGet, Route("{id}")]
         public IHttpActionResult GetPage(int id)
         {
             Page content = db.Pages.Find(id);
@@ -36,8 +38,9 @@ namespace smashing72_manager.Controllers.api
             return Ok(content);
         }
 
-        // PUT: api/Page/5
+        // PUT: api/page/5
         [ResponseType(typeof(void))]
+        [HttpPost, Route("update/{id}")]
         public IHttpActionResult PutPage(int id, Page content)
         {
             if (!ModelState.IsValid)
@@ -71,8 +74,9 @@ namespace smashing72_manager.Controllers.api
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Page
+        // POST: api/page
         [ResponseType(typeof(Page))]
+        [HttpPost, Route("add/{id}")]
         public IHttpActionResult PostPage(Page content)
         {
             if (!ModelState.IsValid)
@@ -88,6 +92,7 @@ namespace smashing72_manager.Controllers.api
 
         // DELETE: api/Page/5
         [ResponseType(typeof(Page))]
+        [HttpPost, Route("delete/{id}")]
         public IHttpActionResult DeleteContent(int id)
         {
             Page content = db.Pages.Find(id);
