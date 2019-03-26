@@ -29,7 +29,7 @@
                     var self = this;
                     var http = new XMLHttpRequest();
                     var url = "/api/news/";
-                    if (this.item.Id > 0) url += this.item.Id + "/";
+                    url += this.item.Id > 0 ? "update/" + this.item.Id : "add/";
 
                     http.addEventListener("load", function (e) {
                         var response = e.currentTarget.response;
@@ -39,8 +39,8 @@
                             self.$emit("item-updated");
                         }
                     });
-                    if (this.item.Id === 0) http.open("POST", url);
-                    else http.open("PUT", url);
+
+                    http.open("POST", url);
 
                     http.setRequestHeader("Content-Type", "application/json");
                     http.responseType = "json";
@@ -50,13 +50,13 @@
                     if (this.item.Id === 0) return;
                     var self = this;
                     var http = new XMLHttpRequest();
-                    var url = "/api/news/" + this.item.Id;
+                    var url = "/api/news/delete/" + this.item.Id;
 
                     http.addEventListener("load", function (e) {
                         var response = e.currentTarget.response;
                         self.$emit("item-deleted", response);
                     });
-                    http.open("DELETE", url);
+                    http.open("POST", url);
 
                     http.responseType = "json";
                     http.send();

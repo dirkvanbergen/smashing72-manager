@@ -9,7 +9,20 @@
     overflow: auto;
     background-color: white;
 
+    @media (max-width: 768px) {
+        float: none;
+        width: 100vw;
+        height: auto;
+        top: 50px;
+        left: 0px;
+        bottom: 0px;
+        box-shadow: 0px -5px 20px 0px $medium-gray;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
     &#section-list {
+        top: 0;
         left: 0;
         padding-top: 60px;
 
@@ -25,7 +38,7 @@
     }
 
     &__title {
-        margin: 20px 0 10px 20px;
+        margin: 20px 20px 10px 20px;
         font-size: 24px;
         font-weight: bold;
     }
@@ -33,10 +46,10 @@
     &__close {
         display: inline-block;
         float: right;
-        margin-right: 40px;
         position: relative;
         width: 15px;
         height: 15px;
+        margin-top: 6px;
 
         &:after, &:before {
             position: absolute;
@@ -65,6 +78,7 @@
 
     &__button {
         margin-left: 20px;
+        margin-right: 20px;
         margin-bottom: 10px;
 
         &--logout {

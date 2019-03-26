@@ -10,6 +10,18 @@
     background-color: white;
     box-shadow: -5px 0px 20px 0px $medium-gray;
 
+    @media (max-width: 768px) {
+        float: none;
+        width: 100vw;
+        height: auto;
+        top: 100px;
+        left: 0px;
+        bottom: 0px;
+        box-shadow: 0px -5px 20px 0px $medium-gray;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
     &__title {
         margin-bottom: 20px;
         font-size: 24px;
@@ -19,11 +31,11 @@
     &__close {
         display: inline-block;
         float: right;
-        margin-right: 40px;
         position: relative;
         width: 15px;
         height: 15px;
         cursor: pointer;
+        margin-top: 6px;
 
         &:after, &:before {
             position: absolute;
@@ -60,6 +72,36 @@
         [role="application"] {
             width: 800px;
             height: 500px;
+        }
+    }
+
+    &__list-item {
+        border-left: 1px solid $medium-gray;
+        border-right: 1px solid $medium-gray;
+        padding: 10px;
+        cursor: pointer;
+
+        &:first-child {
+            border-top: 1px solid $medium-gray;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        &:last-child {
+            border-bottom: 1px solid $medium-gray;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+        &--selected {
+            background-color: $red;
+            border-color: $red;
+            color: white;
+            font-weight: bold;
+
+            &:first-child, &:last-child {
+                border-color: $red;
+            }
         }
     }
 }

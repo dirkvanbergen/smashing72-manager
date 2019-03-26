@@ -44,8 +44,7 @@
                     var self = this;
                     var http = new XMLHttpRequest();
                     var url = "/api/page/";
-                    url += this.item.Id > 0 ? "update/" : "add/";
-                    url += this.item.Id;
+                    url += this.item.Id > 0 ? "update/" + this.item.Id : "add/";
 
                     http.addEventListener("load", function (e) {
                         var response = e.currentTarget.response;

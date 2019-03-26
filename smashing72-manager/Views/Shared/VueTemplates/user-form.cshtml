@@ -1,1 +1,20 @@
-﻿
+﻿<template id="userform-template">
+    <div class="content-form" id="user-form">
+        <div class="content-form__title">Editor <span class="content-form__close" @@click="closeForm"></span></div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">ID</div>
+            <div class="content-form__property-value">{{item.Id}}</div>
+        </div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">UserName</div>
+            <div class="content-form__property-value">{{item.UserName}}</div>
+        </div>
+        <div class="content-form__property">
+            <div class="content-form__property-name">Email</div>
+            <div class="content-form__property-value">{{item.Email}}</div>
+        </div>
+        <div class="content-form__list">
+            <div class="content-form__list-item" v-for="role in roles" :class="{'content-form__list-item--selected': hasRole(role.Name)}" @@click="toggleRole(role.Name)">{{role.Name}}</div>
+        </div>
+    </div>
+</template>

@@ -1,1 +1,19 @@
-﻿
+﻿<template id="userlist-template">
+    <div id="user-view">
+        <div class="content-list">
+            <div class="content-list__title">Gebruikers <span class="content-form__close" @@click="closeList"></span></div>
+            <div class="button button--submit button--small content-list__button " @@click="selectedItem = newItem()">Nieuwe gebruiker</div>
+            <div v-for="item in list">
+                <div class="content-list__item" :class="{'content-list__item--active': selectedItem && selectedItem.Id === item.Id}" @@click="selectedItem = item">{{item.UserName}}</div>
+            </div>
+        </div>
+        <user-form :item="selectedItem"
+                   :roles="roles"
+                   v-if="selectedItem"
+                   v-on:item-added="itemAdded"
+                   v-on:item-updated="itemUpdated"
+                   v-on:item-deleted="itemDeleted"
+                   v-on:close="formClosed">
+        </user-form>
+    </div>
+</template>

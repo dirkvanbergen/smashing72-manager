@@ -27,8 +27,12 @@ input, select {
     font-size: 14px;
     padding: 5px;
     width: 100%;
-    max-width: 500px;
     border: 1px solid $medium-gray;
+
+
+    @media (min-width: 769px) {
+        max-width: 500px;
+    }
 }
 
 @import "components/content-list.scss";

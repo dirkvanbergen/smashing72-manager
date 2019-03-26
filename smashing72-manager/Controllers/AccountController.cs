@@ -51,12 +51,6 @@ namespace smashing72_manager.Controllers
             }
         }
 
-        [AllowAnonymous]
-        // GET: Account
-        public ActionResult Login()
-        {
-            return View();
-        }
         //
         // POST: /Account/Login
         [HttpPost]

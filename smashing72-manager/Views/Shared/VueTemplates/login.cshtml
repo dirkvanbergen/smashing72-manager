@@ -9,9 +9,9 @@
             </transition>
             @Html.AntiForgeryToken()
             <div class="login-form__input login-form__input--email"><label>Email<input type="text" name="Email" /></label></div>
-            <div class="login-form__input login-form__input--password"><label>Wachtwoord<input type="text" name="Password" /></label></div>
+            <div class="login-form__input login-form__input--password"><label>Wachtwoord<input type="password" name="Password" /></label></div>
             <transition name="slide-in">
-                <div class="login-form__input login-form__input--confirm" v-if="currentAction==='register'"><label>Bevestig wachtwoord <input type="text" name="ConfirmPassword" /></label></div>
+                <div class="login-form__input login-form__input--confirm" v-if="currentAction==='register'"><label>Bevestig wachtwoord <input type="password" name="ConfirmPassword" /></label></div>
             </transition>
             <transition name="fade">
                 <div class="login-form__text login-form__text--register" v-if="currentAction==='login'">Nog geen account? <span class="login-form__link" @@click="currentAction='register'">Registreren</span></div>

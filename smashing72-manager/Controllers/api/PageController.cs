@@ -76,7 +76,7 @@ namespace smashing72_manager.Controllers.api
 
         // POST: api/page
         [ResponseType(typeof(Page))]
-        [HttpPost, Route("add/{id}")]
+        [HttpPost, Route("add", Name="PostPage")]
         public IHttpActionResult PostPage(Page content)
         {
             if (!ModelState.IsValid)
@@ -87,7 +87,7 @@ namespace smashing72_manager.Controllers.api
             db.Pages.Add(content);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = content.Id }, content);
+            return CreatedAtRoute("PostPage", new { id = content.Id }, content);
         }
 
         // DELETE: api/Page/5
