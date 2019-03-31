@@ -55,6 +55,8 @@
                         }
                     });
 
+                    if (this.item.ParentContentId === "") this.item.ParentContentId = null;
+
                     http.open("POST", url);
 
                     http.setRequestHeader("Content-Type", "application/json");
